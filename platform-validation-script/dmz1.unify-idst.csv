@@ -1,0 +1,680 @@
+
+Hostname is mentioned below:
+dmz1.unify-idst
+
+Server uptime is mentioned below:
+ 16:24:48 up 22 days,  4:58,  0 users,  load average: 0.00, 0.00, 0.00
+
+Debian-version:7.11
+
+OS-Language:en_US.UTF-8
+
+Total Memory/Swap Info (in GB's):
+Mem: 15
+Swap: 2
+
+CPU Cores: 16
+
+Disks Info:
+Disk /dev/sda: 53.7 GB
+
+There is no Physical Volume present on this server
+
+There is no Volume Group present on this server
+
+There is no Logical Volume present on this server
+
+LUKS is not configured on this server
+
+DRBD is not Installed
+
+Heartbeat is not Installed
+
+NTP Server Names Info:
+server 10.30.1.131 iburst
+server 10.30.1.177 iburst
+
+Proxy Info:
+Acquire::Http::Proxy "http://192.168.209.212:3128";
+Acquire::Https::Proxy "https://192.168.209.212:3128";
+Acquire::Ftp::Proxy "";
+# DIRECT Access for CCC
+Acquire::Https::Proxy::ccc.solvedirect.com "DIRECT";
+Acquire::Https::Proxy::ccc "DIRECT";
+
+NFS-Share-Info:
+10.20.7.67:/data/nfs/export                            nfs4      159G  198M  151G   1% /mnt/nfs
+
+Server is Physical/Virtual Info:
+VMware Virtual Platform
+	Product Name: VMware Virtual Platform
+	Product Name: 440BX Desktop Reference Platform
+
+SgProduct-Info:
+LOCAL_PRODUCTS=nginx,proftpd,
+CLUSTER_PRODUCTS=
+
+
+Contents of cron ipsec-keepalive file which is present under /etc/cron.d folder:
+* * * * * /bin/ping -c 3 10.30.1.50
+
+Contents of cron sdcronjobs file which is present under /etc/cron.d folder:
+2,12,22,32,42,52 * * * *     root     /usr/bin/sdreadalive
+7,17,27,37,47,57 * * * *     root     /usr/bin/sdreadalive
+
+Contents of cron sdjvmperformancemonitoring file which is present under /etc/cron.d folder:
+@reboot 	root	 if [ ! -d /var/run/sdjvmperformance/ ]; then mkdir -p /var/run/sdjvmperformance/ && chown sd.sd /var/run/sdjvmperformance/; fi
+*/5 * * * * 	root	 if [ ! -d /var/run/sdjvmperformance/ ]; then mkdir -p /var/run/sdjvmperformance/ && chown sd.sd /var/run/sdjvmperformance/; fi
+
+Contents of cron sdlogcycle file which is present under /etc/cron.d folder:
+0 02 * * *      root      /usr/bin/sdlogcycle
+
+Routes Info:
+default via 10.20.7.1 dev eth0 
+10.20.7.0/26 dev eth0  proto kernel  scope link  src 10.20.7.2 
+10.20.7.64/26 via 10.20.7.3 dev eth0 
+10.20.7.128/26 via 10.20.7.3 dev eth0 
+
+/etc/resolv.conf file entries:
+domain:unify-idst
+search:unify-idst
+nameserver:10.20.7.1
+nameserver:10.30.1.50
+nameserver:192.168.138.145
+nameserver:8.8.8.8
+nameserver:8.8.4.4
+
+IP Address Info:
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UNKNOWN qlen 1000
+    link/ether 00:50:56:a2:6a:bf brd ff:ff:ff:ff:ff:ff
+    inet 10.20.7.2/26 brd 10.20.7.63 scope global eth0
+    inet6 fe80::250:56ff:fea2:6abf/64 scope link 
+       valid_lft forever preferred_lft forever
+
+Mac Address of eth0:
+00:50:56:a2:6a:bf
+
+Mac Address of lo:
+00:00:00:00:00:00
+
+/etc/network/interfaces entries:
+auto lo
+iface lo inet loopback
+allow-hotplug eth0
+iface eth0 inet static
+ address 10.20.7.2
+ netmask 255.255.255.192
+ network 10.20.7.0
+ broadcast 10.20.7.63
+ gateway 10.20.7.1
+ post-up /sbin/ip route add 10.20.7.64/26 via 10.20.7.3
+ post-up /sbin/ip route add 10.20.7.128/26 via 10.20.7.3
+
+Service sd-all status command's output is mentioned below:
+# status for 0 of type all
+
+Fstab file entries:
+UUID=3f3b307a-d95e-4658-bafc-b0b5906c58d3 / ext4 errors=remount-ro 0 1
+UUID=47bedb4f-3449-412d-9a13-d4f742a59a48 none swap sw 0 0
+/dev/sr0 /media/cdrom0 udf,iso9660 user,noauto 0 0
+10.20.7.67:/data/nfs/export /mnt/nfs nfs retrans=5,timeo=14,intr,tcp,sec=sys,_netdev,noauto 0 0
+
+/etc/hosts file entries:
+127.0.0.1 localhost
+10.20.7.131 app1.unify-idst app1
+10.20.7.67 data1.unify-idst data1
+10.20.7.2 dmz1.unify-idst dmz1
+10.20.7.1 fw4.unify-idst fw4
+10.20.7.3 fwi4.unify-idst fwi4
+10.30.1.131 ccc ccc
+10.30.0.166 smokeping.us.adm.servicegrid.cisco smokeping
+# additional host entries for platform unify-idst
+10.252.240.181 AsekoIDST
+195.88.117.77 BARemedy itsmfw.arbeitsagentur.de
+10.252.13.57 OsilaIDST trbsi1i01w.ibavoip.de
+10.252.240.197 sso-service
+10.252.240.184 tvdt2i0m80l.ibavoip.de FntIDST
+217.115.74.186 UnifyGSI gsi-service1.unify.com
+145.230.94.20 Vodafone
+
+ShowQ command's output is mentioned below:
+argLinewas:
+showQueues
+AsyncReplicationT:0
+group3Q:0
+AsyncReplicationQ:0
+InQ_unordered:0
+CallIn_default:0
+CallOut_unordered:0
+group2Q:0
+eclipselinkTopic:46
+UploadQ:0
+isAliveT:0
+MailOutQ:12
+ControlT:0
+GlobalIn:0
+CallOut_default:0
+group1Q:0
+RoutingRuleQ:0
+CallIn_unordered:0
+InQ_default:0
+WebServiceOutQ:1
+WatchdogT:0
+SchedulerQ:0
+Alert:0
+
+Compstat Output is mentioned below:
+WebServiceBridge.Out-160513307 (1OsilaOutPRO 1OsilaOutPROD): Running; State is Running (internal state is Running)
+P1_default (P1_default)                                    : RUNNING; RUNNING
+P2_default (P2_default)                                    : RUNNING; RUNNING
+P3_default (P3_default)                                    : RUNNING; RUNNING
+P1_unordered (P1_unordered)                                : RUNNING; RUNNING
+P2_unordered (P2_unordered)                                : RUNNING; RUNNING
+P3_unordered (P3_unordered)                                : RUNNING; RUNNING
+
+Open ports status:
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:43136           0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:993             0.0.0.0:*               LISTEN      15309/dovecot   
+tcp        0      0 0.0.0.0:5666            0.0.0.0:*               LISTEN      2408/nrpe       
+tcp        0      0 0.0.0.0:995             0.0.0.0:*               LISTEN      15309/dovecot   
+tcp        0      0 0.0.0.0:587             0.0.0.0:*               LISTEN      14596/master    
+tcp        0      0 0.0.0.0:50124           0.0.0.0:*               LISTEN      1871/rpc.statd  
+tcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      4647/proftpd: (acce
+tcp        0      0 0.0.0.0:110             0.0.0.0:*               LISTEN      15309/dovecot   
+tcp        0      0 0.0.0.0:143             0.0.0.0:*               LISTEN      15309/dovecot   
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1840/rpcbind    
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      8291/nginx.conf 
+tcp        0      0 0.0.0.0:465             0.0.0.0:*               LISTEN      14596/master    
+tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      4647/proftpd: (acce
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      2499/sshd       
+tcp        0      0 127.0.0.1:8503          0.0.0.0:*               LISTEN      8291/nginx.conf 
+tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      10125/smtpd     
+tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      8291/nginx.conf 
+tcp6       0      0 :::993                  :::*                    LISTEN      15309/dovecot   
+tcp6       0      0 :::995                  :::*                    LISTEN      15309/dovecot   
+tcp6       0      0 :::60105                :::*                    LISTEN      1871/rpc.statd  
+tcp6       0      0 :::110                  :::*                    LISTEN      15309/dovecot   
+tcp6       0      0 :::143                  :::*                    LISTEN      15309/dovecot   
+tcp6       0      0 :::111                  :::*                    LISTEN      1840/rpcbind    
+tcp6       0      0 :::22                   :::*                    LISTEN      2499/sshd       
+tcp6       0      0 :::60473                :::*                    LISTEN      -               
+udp        0      0 0.0.0.0:44018           0.0.0.0:*                           1871/rpc.statd  
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           1840/rpcbind    
+udp        0      0 10.20.7.2:123           0.0.0.0:*                           2386/ntpd       
+udp        0      0 127.0.0.1:123           0.0.0.0:*                           2386/ntpd       
+udp        0      0 0.0.0.0:123             0.0.0.0:*                           2386/ntpd       
+udp        0      0 0.0.0.0:514             0.0.0.0:*                           2233/rsyslogd   
+udp        0      0 0.0.0.0:743             0.0.0.0:*                           1840/rpcbind    
+udp        0      0 127.0.0.1:775           0.0.0.0:*                           1871/rpc.statd  
+udp6       0      0 :::35507                :::*                                1871/rpc.statd  
+udp6       0      0 :::111                  :::*                                1840/rpcbind    
+udp6       0      0 fe80::250:56ff:fea2:123 :::*                                2386/ntpd       
+udp6       0      0 ::1:123                 :::*                                2386/ntpd       
+udp6       0      0 :::123                  :::*                                2386/ntpd       
+udp6       0      0 :::514                  :::*                                2233/rsyslogd   
+udp6       0      0 :::743                  :::*                                1840/rpcbind    
+
+Installed packages list:
+acpi:1.6-1
+acpi-support-base:0.140-5+deb7u3
+acpid:1:2.0.16-1+deb7u1
+adduser:3.113+nmu3
+apache2-utils:2.2.22-13+deb7u13
+apt:0.9.7.9+deb7u7
+apt-transport-https:0.9.7.9+deb7u7
+apt-utils:0.9.7.9+deb7u7
+aptitude:0.6.8.2-1
+aptitude-common:0.6.8.2-1
+auditd:1:1.7.18-1.1
+augeas-lenses:1.2.0-0.2+deb8u1~bpo70+1
+augeas-tools:1.2.0-0.2+deb8u1~bpo70+1
+base-files:7.1wheezy11
+base-passwd:3.5.26
+bash:4.2+dfsg-0.1+deb7u4
+bash-completion:1:2.0-1
+bash-static:4.2+dfsg-0.1+deb7u4
+bc:1.06.95-2+b1
+bind9-host:1:9.8.4.dfsg.P1-6+nmu2+deb7u20
+binutils:2.22-8+deb7u3
+bsdmainutils:9.0.3
+bsdutils:1:2.20.1-5.3
+busybox:1:1.20.0-7
+bzip2:1.0.6-4
+ca-certificates:20130119+deb7u2
+chkconfig:11.4-54.60.1-1
+colordiff:1.0.10-1
+console-setup:1.88
+console-setup-linux:1.88
+coreutils:8.13-3.5
+cpio:2.11+dfsg-0.1+deb7u2
+cpp-4.6:4.6.3-14
+cron:3.0pl1-124
+curl:7.26.0-1+wheezy25+deb7u1
+dash:0.5.7-3
+dctrl-tools:2.22.2
+debconf:1.5.49
+debconf-i18n:1.5.49
+debfoster:2.7-1.2
+debian-archive-keyring:2014.3~deb7u1
+debian-goodies:0.61
+debian-keyring:2013.04.21
+debianutils:4.3.2
+deborphan:1.7.28.8
+diffutils:1:3.2-6
+discover:2.1.2-5.2
+discover-data:2.2010.10.18
+dmidecode:2.11-9
+dmsetup:2:1.02.74-8
+dnsutils:1:9.8.4.dfsg.P1-6+nmu2+deb7u20
+dovecot-core:1:2.1.7-7+deb7u2
+dovecot-imapd:1:2.1.7-7+deb7u2
+dovecot-lmtpd:1:2.1.7-7+deb7u2
+dovecot-pop3d:1:2.1.7-7+deb7u2
+dpkg:1.16.18
+dropbear:2012.55-1.3+deb7u2
+dstat:0.7.2-3
+e2fslibs:amd64:1.42.5-1.1+deb7u1
+e2fsprogs:1.42.5-1.1+deb7u1
+eject:2.1.5+deb1+cvs20081104-13+deb7u1
+elinks:0.12~pre5-9
+elinks-data:0.12~pre5-9
+emacs23-bin-common:23.4+1-4+deb7u1
+emacs23-common:23.4+1-4+deb7u1
+emacs23-nox:23.4+1-4+deb7u1
+emacsen-common:2.0.5
+etckeeper:0.63
+ethtool:1:3.4.2-1
+expect:5.45-2
+facter:1.7.6-1puppetlabs1
+file:5.11-2+deb7u9
+findutils:4.4.2-4
+firmware-linux-free:3.2
+freeipmi-common:1.1.5-3
+freeipmi-tools:1.1.5-3
+gawk:1:4.0.1+dfsg-2.1
+gcc-4.6:4.6.3-14
+gcc-4.6-base:amd64:4.6.3-14
+gcc-4.7-base:amd64:4.7.2-5
+gcc-4.9-backport:4.9.2-10+deb7u1
+genders:1.18-1
+gettext-base:0.18.1.1-9
+git:1:1.7.10.4-1+wheezy6
+git-man:1:1.7.10.4-1+wheezy6
+gnupg:1.4.12-7+deb7u9
+gpgv:1.4.12-7+deb7u9
+grep:2.12-2
+groff-base:1.21-9
+grub-common:1.99-27+deb7u3
+grub-pc:1.99-27+deb7u3
+grub-pc-bin:1.99-27+deb7u3
+grub2-common:1.99-27+deb7u3
+gzip:1.5-1.1
+haveged:1.4-4
+hddtemp:0.3-beta15-52
+heirloom-mailx:12.5-2+deb7u1
+hostname:3.11
+htop:1.0.1-1
+ifupdown:0.7.8
+info:4.13a.dfsg.1-10
+init-system-helpers:1.18~bpo70+1
+initramfs-tools:0.109.1
+initscripts:2.88dsf-41+deb7u1
+insserv:1.14.0-5
+install-info:4.13a.dfsg.1-10
+installation-report:2.49
+iotop:0.4.4-4
+ipmitool:1.8.11-5
+iproute:20120521-3+b3
+iptables:1.4.14-3.1
+iputils-ping:3:20101006-1+b1
+isc-dhcp-client:4.2.2.dfsg.1-5+deb70u9
+isc-dhcp-common:4.2.2.dfsg.1-5+deb70u9
+java-common:0.47+deb7u2
+jmxsh:5-1
+jq:1.4
+kbd:1.15.3-9
+keyboard-configuration:1.88
+klibc-utils:2.0.1-3.1
+kmod:9-3
+laptop-detect:0.13.7
+less:444-4
+libacl1:amd64:2.2.51-8
+libapr1:1.4.6-3+deb7u2
+libaprutil1:1.4.1-3+deb7u1
+libapt-inst1.5:amd64:0.9.7.9+deb7u7
+libapt-pkg4.12:amd64:0.9.7.9+deb7u7
+libasound2:amd64:1.0.25-4
+libasprintf0c2:amd64:0.18.1.1-9
+libattr1:amd64:1:2.4.46-8
+libaudit0:1:1.7.18-1.1
+libaugeas-ruby1.8:0.5.0-2~bpo70+1
+libaugeas0:1.2.0-0.2+deb8u1~bpo70+1
+libbind9-80:1:9.8.4.dfsg.P1-6+nmu2+deb7u20
+libblas3:1.2.20110419-5
+libblas3gf:1.2.20110419-5
+libblkid1:amd64:2.20.1-5.3
+libboost-iostreams1.49.0:1.49.0-3.2
+libbsd0:amd64:0.4.2-1
+libbz2-1.0:amd64:1.0.6-4
+libc-ares2:amd64:1.9.1-3+deb7u2
+libc-bin:2.13-38+deb7u12
+libc-dev-bin:2.13-38+deb7u12
+libc6:amd64:2.13-38+deb7u12
+libc6-dev:amd64:2.13-38+deb7u12
+libc6-dev-i386:2.13-38+deb7u12
+libc6-i386:2.13-38+deb7u12
+libcap-ng0:0.6.6-2
+libcap2:amd64:1:2.22-1.2
+libcap2-bin:1:2.22-1.2
+libclass-accessor-perl:0.34-1
+libclass-isa-perl:0.36-3
+libcomerr2:amd64:1.42.5-1.1+deb7u1
+libconfig-tiny-perl:2.14-1
+libcurl3:amd64:7.26.0-1+wheezy25+deb7u1
+libcurl3-gnutls:amd64:7.26.0-1+wheezy25+deb7u1
+libcwidget3:0.5.16-3.4
+libdb5.1:amd64:5.1.29-5+deb7u1
+libdbd-pg-perl:2.19.2-2+deb7u1
+libdbi-perl:1.622-1+deb7u1
+libdbus-1-3:amd64:1.6.8-1+deb7u6
+libdevmapper-event1.02.1:amd64:2:1.02.74-8
+libdevmapper1.02.1:amd64:2:1.02.74-8
+libdiscover2:2.1.2-5.2
+libdns88:1:9.8.4.dfsg.P1-6+nmu2+deb7u20
+libdumbnet1:1.12-3.1
+libedit2:amd64:2.11-20080614-5
+libee0:0.4.1-1
+libept1.4.12:1.0.9
+liberror-perl:0.17-1
+libestr0:0.1.9-1~bpo70+1
+libevent-2.0-5:amd64:2.0.19-stable-3+deb7u2
+libexpat1:amd64:2.1.0-1+deb7u5
+libfcgi0ldbl:2.4.0-8.1+deb7u1
+libffi5:amd64:3.0.10-3+deb7u2
+libfile-copy-recursive-perl:0.38-1
+libfreeipmi12:1.1.5-3
+libfreetype6:amd64:2.4.9-1.1+deb7u7
+libfsplib0:0.11-2
+libfuse2:amd64:2.9.0-2+deb7u2
+libgc1c2:1:7.1-9.1+deb7u1
+libgcc1:amd64:1:4.7.2-5
+libgcrypt11:amd64:1.5.0-5+deb7u6
+libgd2-noxpm:amd64:2.0.36~rc1~dfsg-6.1+deb7u11
+libgdbm3:amd64:1.8.3-11
+libgenders0:1.18-1
+libgeoip1:1.4.8+dfsg-3
+libgetopt-mixed-perl:1.008-10
+libgfortran3:amd64:4.7.2-5
+libglib2.0-0:amd64:2.33.12+really2.32.4-5
+libgmp10:amd64:2:5.0.5+dfsg-2
+libgnutls26:amd64:2.12.20-8+deb7u5
+libgomp1:amd64:4.7.2-5
+libgpg-error0:amd64:1.10-3.1
+libgpm2:amd64:1.20.4-6
+libgssapi-krb5-2:amd64:1.10.1+dfsg-5+deb7u9
+libgssglue1:amd64:0.4-2
+libicu48:amd64:4.8.1.1-12+deb7u7
+libidn11:amd64:1.25-2+deb7u3
+libio-pty-perl:1:1.08-1+b2
+libipc-run-perl:0.92-1
+libipmiconsole2:1.1.5-3
+libipmidetect0:1.1.5-3
+libisc84:1:9.8.4.dfsg.P1-6+nmu2+deb7u20
+libisccc80:1:9.8.4.dfsg.P1-6+nmu2+deb7u20
+libisccfg82:1:9.8.4.dfsg.P1-6+nmu2+deb7u20
+libjson-c2:amd64:0.11-3~bpo7+1
+libk5crypto3:amd64:1.10.1+dfsg-5+deb7u9
+libkeyutils1:amd64:1.5.5-3+deb7u1
+libklibc:2.0.1-3.1
+libkmod2:amd64:9-3
+libkrb5-3:amd64:1.10.1+dfsg-5+deb7u9
+libkrb5support0:amd64:1.10.1+dfsg-5+deb7u9
+libldap-2.4-2:amd64:2.4.31-2+deb7u3
+liblinear1:1.8+dfsg-1
+liblocale-gettext-perl:1.05-7+b1
+liblockfile-bin:1.09-5
+liblockfile1:amd64:1.09-5
+liblogging-stdlog0:amd64:1.0.4-1~bpo70+1
+liblognorm0:0.3.4-1
+libltdl7:amd64:2.4.2-1.1
+liblua5.1-0:amd64:5.1.5-4+deb7u1
+liblua5.2-0:amd64:5.2.1-3+deb7u1
+liblwres80:1:9.8.4.dfsg.P1-6+nmu2+deb7u20
+liblzma5:amd64:5.1.1alpha+20120614-2
+libmagic1:amd64:5.11-2+deb7u9
+libmail-pop3client-perl:2.17-1
+libmath-calc-units-perl:1.07-1
+libmcrypt4:2.5.8-3.1
+libmodule-find-perl:0.11-1
+libmodule-implementation-perl:0.06-1
+libmodule-runtime-perl:0.013-1
+libmodule-scandeps-perl:1.08-1
+libmount1:2.20.1-5.3
+libmpc2:amd64:0.9-4
+libmpfr4:amd64:3.1.0-5
+libnagios-plugin-perl:0.36-1
+libncurses5:amd64:5.9-10
+libncursesw5:amd64:5.9-10
+libnewt0.52:0.52.14-11.1
+libnfnetlink0:1.0.0-1.1
+libnfsidmap2:amd64:0.25-4
+libnl-3-200:amd64:3.2.7-4+deb7u1
+libnl-genl-3-200:amd64:3.2.7-4+deb7u1
+libodbc1:amd64:2.2.14p2-5
+libopts25:1:5.12-0.1
+libp11-kit0:amd64:0.12-3
+libpam-modules:amd64:1.1.3-7.1
+libpam-modules-bin:1.1.3-7.1
+libpam-runtime:1.1.3-7.1
+libpam0g:amd64:1.1.3-7.1
+libparams-classify-perl:0.013-4
+libparams-validate-perl:1.06-1
+libparted0debian1:amd64:2.3-12
+libpcap0.8:amd64:1.3.0-1
+libpci3:amd64:1:3.1.9-6
+libpcre3:amd64:1:8.30-5
+libperl5.14:5.14.2-21+deb7u6
+libpipeline1:amd64:1.2.1-1
+libpng12-0:amd64:1.2.49-1+deb7u2
+libpopt0:amd64:1.16-7
+libpq5:9.1.24lts2-0+deb7u2
+libproc-processtable-perl:0.45-6
+libprocps0:amd64:1:3.3.3-3+deb7u1
+libquadmath0:amd64:4.7.2-5
+libreadline5:amd64:5.2+dfsg-2~deb7u1
+libreadline6:amd64:6.2+dfsg-0.1
+librtmp0:amd64:2.4+20111222.git4e06e21-1+deb7u1
+libruby1.8:1.8.7.358-7.1+deb7u6
+libsasl2-2:amd64:2.1.25.dfsg1-6+deb7u1
+libselinux1:amd64:2.1.9-5
+libsemanage-common:2.1.6-6
+libsemanage1:amd64:2.1.6-6
+libsepol1:amd64:2.1.4-3
+libsigc++-2.0-0c2a:amd64:2.2.10-0.2
+libsigsegv2:2.9-4
+libslang2:amd64:2.2.4-15
+libsmi2ldbl:amd64:0.4.8+dfsg2-7
+libsort-naturally-perl:1.02-1
+libsqlite3-0:amd64:3.7.13-1+deb7u4
+libss2:amd64:1.42.5-1.1+deb7u1
+libssh2-1:amd64:1.4.2-1.1+deb7u2
+libssl1.0.0:amd64:1.0.1t-1+deb7u4
+libstdc++6:amd64:4.7.2-5
+libstrongswan:4.5.2-1.5+deb7u10
+libsub-name-perl:0.05-1+b2
+libswitch-perl:2.16-2
+libtasn1-3:amd64:2.13-2+deb7u5
+libterm-readkey-perl:2.30-4+b2
+libtext-charwidth-perl:0.04-7+b1
+libtext-iconv-perl:1.7-5
+libtext-wrapi18n-perl:0.06-7
+libtinfo5:amd64:5.9-10
+libtirpc1:amd64:0.2.2-5+deb7u1
+libtre5:amd64:0.8.0-3+deb7u1
+libtry-tiny-perl:0.11-1
+libudev0:amd64:175-7.2
+libusb-0.1-4:amd64:2:0.1.12-20+nmu1
+libustr-1.0-1:amd64:1.0.4-3
+libuu0:0.5.20-3.3
+libuuid-perl:0.02-5
+libuuid1:amd64:2.20.1-5.3
+libwireshark-data:1.12.1+g01b65bf-4+deb8u6~deb7u11
+libwireshark5:amd64:1.12.1+g01b65bf-4+deb8u6~deb7u11
+libwiretap4:amd64:1.12.1+g01b65bf-4+deb8u6~deb7u11
+libwrap0:amd64:7.6.q-24
+libwsutil4:amd64:1.12.1+g01b65bf-4+deb8u6~deb7u11
+libx11-6:amd64:2:1.5.0-1+deb7u4
+libx11-data:2:1.5.0-1+deb7u4
+libxapian22:1.2.12-2+deb7u1
+libxau6:amd64:1:1.0.7-1
+libxcb1:amd64:1.8.1-2+deb7u1
+libxdmcp6:amd64:1:1.1.1-1
+libxml2:amd64:2.8.0+dfsg1-7+wheezy12
+libxslt1.1:amd64:1.1.26-14.1+deb7u3
+linux-base:3.5
+linux-headers-3.2.0-6-amd64:3.2.102-1
+linux-headers-3.2.0-6-common:3.2.102-1
+linux-headers-amd64:3.2+46+deb7u2
+linux-image-3.2.0-4-amd64:3.2.96-2
+linux-image-3.2.0-5-amd64:3.2.96-3
+linux-image-3.2.0-6-amd64:3.2.102-1
+linux-image-amd64:3.2+46+deb7u2
+linux-kbuild-3.2:3.2.101-1
+linux-libc-dev:amd64:3.2.102-1
+locales:2.13-38+deb7u12
+login:1:4.1.5.1-1+deb7u1
+logrotate:3.8.1-4
+lsb-base:4.1+Debian8+deb7u1
+lsb-release:4.1+Debian8+deb7u1
+lshw:02.16-1
+lsof:4.86+dfsg-1
+lvm2:2.02.95-8
+man-db:2.6.2-1
+manpages:3.44-1
+manpages-dev:3.44-1
+mawk:1.3.3-17
+mc:3:4.8.3-10
+mc-data:3:4.8.3-10
+mime-support:3.52-1+deb7u1
+module-init-tools:9-3
+monitoring-plugins-basic:2.1.1-1~bpo70+1
+monitoring-plugins-common:2.1.1-1~bpo70+1
+mount:2.20.1-5.3
+mtr-tiny:0.82-3
+multiarch-support:2.13-38+deb7u12
+nagios-nrpe-plugin:2.13-3
+nagios-plugin-check-logfiles:3.7.5.2
+nano:2.2.6-1+b1
+ncdu:1.8-1
+ncurses-base:5.9-10
+ncurses-bin:5.9-10
+needrestart:1.2-7~bpo70+1
+net-tools:1.60-24.2
+netbase:5.0
+netcat-traditional:1.10-40
+nfs-common:1:1.2.6-4
+nginx:1.12.1-1~wheezy
+nginx-common:1.2.1-2.2+wheezy4+deb7u1
+nmap:6.00-0.3+deb7u1
+ntp:1:4.2.6.p5+dfsg-2+deb7u7
+odbcinst:2.2.14p2-5
+odbcinst1debian2:amd64:2.2.14p2-5
+open-vm-tools:2:8.8.0+2012.05.21-724730-1+nmu2+deb7u1
+openssh-client:1:6.0p1-4+deb7u7
+openssh-server:1:6.0p1-4+deb7u7
+openssl:1.0.1t-1+deb7u4
+opsview-agent:5.3.0.170401146-1wheezy1
+oracle-java8-bin:8.144-1
+oracle-java8-jdk:8.144-1
+oracle-java8-jre:8.144-1
+os-prober:1.58
+parted:2.3-12
+passwd:1:4.1.5.1-1+deb7u1
+patch:2.6.1-3+deb7u1
+pciutils:1:3.1.9-6
+pdsh:2.27-2
+perl:5.14.2-21+deb7u6
+perl-base:5.14.2-21+deb7u6
+perl-modules:5.14.2-21+deb7u6
+postfix:2.11.2-1~bpo70+1
+procps:1:3.3.3-3+deb7u1
+proftpd-basic:1.3.4a-5+deb7u3
+proftpd-mod-pgsql:1.3.4a-5+deb7u3
+proftpd-mod-vroot:0.9.2-2+b2
+psmisc:22.19-1+deb7u1
+puppet:2.7.23-1~deb7u4
+puppet-common:2.7.23-1~deb7u4
+python:2.7.3-4+deb7u1
+python-apt:0.8.8.2
+python-apt-common:0.8.8.2
+python-minimal:2.7.3-4+deb7u1
+python2.7:2.7.3-6+deb7u4
+python2.7-minimal:2.7.3-6+deb7u4
+readline-common:6.2+dfsg-0.1
+realpath:1.18
+rng-tools:2-unofficial-mt.14-1
+rpcbind:0.2.0-8+deb7u2
+rsync:3.0.9-4+deb7u2
+rsyslog:7.6.3-2~bpo70+1
+ruby-augeas:0.5.0-2~bpo70+1
+ruby-json:1.7.3-3
+ruby-mime-types:1.19-1
+ruby-rest-client:1.6.7-3
+ruby-shadow:2.1.4-2
+ruby1.8:1.8.7.358-7.1+deb7u6
+screen:4.1.0~20120320gitdb59704-7+deb7u1
+sed:4.2.1-10
+sensible-utils:0.0.7+deb7u1
+servicegrid-cli:8.4.3-2296
+servicegrid-common:8.4.2-2145
+sg-ca-certificates:2.3
+sg-java:1.0
+sg-opsview-scripts:0.4.2
+sg-scripts:8.4
+smartmontools:5.41+svn3365-1
+ssh:1:6.0p1-4+deb7u7
+ssl-cert:1.0.32+deb7u1
+sslscan:1.8.2-2
+strace:4.5.20-2.3
+sudo:1.8.5p2-1+nmu3+deb7u4
+sysv-rc:2.88dsf-41+deb7u1
+sysvinit:2.88dsf-41+deb7u1
+sysvinit-utils:2.88dsf-41+deb7u1
+tar:1.26+dfsg-0.1+deb7u1
+tasksel:3.14.1
+tasksel-data:3.14.1
+tcl8.5:8.5.11-2
+tcpdump:4.9.2-1~deb7u1
+telnet:0.17-36
+tmux:1.6-2
+traceroute:1:2.0.18-3
+tree:1.6.0-1
+tshark:1.12.1+g01b65bf-4+deb8u6~deb7u11
+tzdata:2018e-0+deb7u1
+ucf:3.0025+nmu3
+udev:175-7.2
+unattended-upgrades:0.79.5+wheezy3
+unixodbc:2.2.14p2-5
+unzip:6.0-8+deb7u6
+update-inetd:4.43
+util-linux:2.20.1-5.3
+uudeview:0.5.20-3.3
+vim:2:7.3.547-7+deb7u4
+vim-common:2:7.3.547-7+deb7u4
+vim-runtime:2:7.3.547-7+deb7u4
+vim-tiny:2:7.3.547-7+deb7u4
+virt-what:1.12-1
+w3m:0.5.3-8
+wget:1.13.4-3+deb7u6
+whiptail:0.52.14-11.1
+wireshark-common:1.12.1+g01b65bf-4+deb8u6~deb7u11
+xkb-data:2.5.1-3
+xz-utils:5.1.1alpha+20120614-2
+zlib1g:amd64:1:1.2.7.dfsg-13
